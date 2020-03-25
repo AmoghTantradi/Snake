@@ -6,6 +6,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class Turret extends Rectangle2D.Double implements GameObject {
 	
 	double theta = 0;

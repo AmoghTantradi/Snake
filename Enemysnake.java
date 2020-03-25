@@ -4,16 +4,15 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Random;
 
 import Utilities.GDV5;
 
 public class Enemysnake extends Supersnake{
-	private Random rand;
+
 	double x,y;
 	
+	@SuppressWarnings("unused")
 	public Enemysnake() {
-
 		this(5,Constants.screen_width / 800, 2*Constants.screen_height / 3);
 		x = Constants.screen_width/2;
 		y = Constants.screen_height/3;
@@ -24,7 +23,6 @@ public class Enemysnake extends Supersnake{
 	public Enemysnake(int size,double x, double y) {
 		this.arr = new ArrayList<Bodypart>();
 		this.turnedpositions = new ArrayList<Turningpoint>();
-		rand = new Random();
 		for (int i = size; i > 0; i--) {
 			arr.add(new Bodypart(x + (mag) * i, y, mag,Color.yellow));
 			

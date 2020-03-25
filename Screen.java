@@ -215,78 +215,7 @@ public class Screen {
 
 	}
 
-	public void updateGame() {
-
-		/*
-		 * if (gamestate == 2) {// single player
-		 * 
-		 * if (player1 == null) {
-		 * 
-		 * if (livesp1 > 0) {
-		 * 
-		 * player1 = new Body(); livesp1 -= 1;
-		 * 
-		 * } else { gamestate = 3; kill(); }
-		 * 
-		 * if (scorep1 == 100 && !levels[0]|| scorep1 == 200 && !levels[1]) {// put
-		 * twice just in case it dies while reaching a new
-		 * food.spawned.removeAll(food.spawned); // level player1 = new Body(); if(level
-		 * == 1) { levels[0] =true; } else levels[1] = true; level += 1; livesp1 = 2;
-		 * group.removeAll(group); for (int i = 0; i < scorep1/100; i++) { group.add(new
-		 * Tank()); } food.spawn(); } else if (scorep1 == 300 && !levels[2]) {
-		 * food.spawned.removeAll(food.spawned); gamestate = 5; kill(); }
-		 * 
-		 * } else {//it is alive so this does the level changing
-		 * 
-		 * if (scorep1 == 100 && !levels[0]|| scorep1 == 200 && !levels[1]) {// put
-		 * twice just in case it dies while reaching a new
-		 * food.spawned.removeAll(food.spawned); // level player1 = new Body(); if(level
-		 * == 1) { levels[0] =true; } else levels[1] = true; level += 1; livesp1 = 2;
-		 * group.removeAll(group); for (int i = 0; i < scorep1/100; i++) { group.add(new
-		 * Tank()); } food.spawn(); } else if (scorep1 == 300 && !levels[2]) {
-		 * food.spawned.removeAll(food.spawned); gamestate = 5; kill(); } } }
-		 * 
-		 * else { // gamestate ==1 (multiplayer)
-		 * 
-		 * if (player1 == null) {
-		 * 
-		 * if (livesp1 > 0) {// has enough lives player1 = new Body(); livesp1--; } else
-		 * {// runs out of lives
-		 * 
-		 * if (player2 != null) {
-		 * 
-		 * if (level != 3) { level += 1; player1 = new Body(); livesp1 = 2;
-		 * group.removeAll(group); for (int i = 0; i < level; i++) group.add(new
-		 * Tank()); } else {// if it is level 3, end the game gamestate = 4; kill(); }
-		 * 
-		 * } else {// player2 is dead so 2nd if statement comes into play if (level !=
-		 * 3) {
-		 * 
-		 * player1 = new Body(); livesp1 = 2;
-		 * 
-		 * } else {// if it is level 3, end the game gamestate = 4; kill(); }
-		 * 
-		 * }
-		 * 
-		 * }
-		 * 
-		 * }
-		 * 
-		 * if (player2 == null) { if (livesp2 > 0) {// has enough lives player2 = new
-		 * Enemysnake(); livesp2--; } else {// runs out of lives
-		 * 
-		 * if (level != 3) { level += 1; player2 = new Enemysnake(); livesp2 = 2;
-		 * group.removeAll(group); for (int i = 0; i < level; i++) group.add(new
-		 * Tank()); } else {// if it is level 3, end the game gamestate = 4; kill(); }
-		 * 
-		 * }
-		 * 
-		 * }
-		 * 
-		 * }
-		 */
-		
-		
+	public void updateGame() {	
 		//if it is singlep player
 		
 		//if player 1 is dead 
@@ -434,7 +363,7 @@ public class Screen {
 					}
 	
 				}
-	
+	  
 			}
 	
 			if (player2 == null) {

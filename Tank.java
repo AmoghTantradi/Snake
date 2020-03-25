@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 
+@SuppressWarnings("serial")
 public class Tank extends Rectangle2D.Double implements GameObject {
 	//tank number 2-3-7
 	double theta= 0;
