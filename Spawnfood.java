@@ -31,6 +31,7 @@ public class Spawnfood implements GameObject {
 					if (spawned.get(i).intersects(Screen.player1.arr.get(j))) {
 
 						Screen.scorep1 += 20;
+						
 
 						spawned.remove(i);
 						Snake.s.setVolume(2, 6.0206f);

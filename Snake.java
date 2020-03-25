@@ -11,7 +11,9 @@ import Utilities.SoundDriver;
 
 @SuppressWarnings("serial")
 public class Snake extends GDV5 {
-
+//review generation , especially healthpack generation. Also, review tank generation for single player mode
+	//and also review level progression for single player
+	//furthermore, try to clean up the code into methods if not done already 
 	Screen screen;
 	ArrayList<BufferedImage>images;
 	

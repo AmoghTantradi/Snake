@@ -8,7 +8,8 @@ public class FrontImage implements GameObject {
 	Animation anim;
 	
 	public FrontImage(BufferedImage img) {
-		anim = new Animation(img,2,4,0.75d);
+		anim = new Animation(img,2,4,0.01d);
+		//anim = new Animation(img,8,4,0.75d);
 		anim.xpos = (Constants.screen_width*0.375);
 		
 	}

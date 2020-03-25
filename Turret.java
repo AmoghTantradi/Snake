@@ -183,8 +183,10 @@ public class Turret extends Rectangle2D.Double implements GameObject {
 							e.add(new Explosion(s.arr.get(i).getCenterX(),s.arr.get(i).getCenterY()));
 							s.arr.remove(i);
 							Snake.s.play(1);
+							s.doDamage(2*Screen.level);
 							
 						}
+					
 						l.remove(j);
 					}
 					else  {
