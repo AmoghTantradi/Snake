@@ -57,7 +57,7 @@ public class Tank extends Rectangle2D.Double implements GameObject {
 		dy = 0;
 	}
 	
-	private void synchronizedMovement() {//emulfated tank movement perfectly
+	private void synchronizedMovement() {//emultated tank movement perfectly
 		
 		if(!moving) {
 		 ptx = (Math.random()*Constants.screen_width/2)+Constants.screen_width/4;

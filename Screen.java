@@ -6,10 +6,10 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-//sometimes does'nt acknowledge level changing 
 public class Screen {
 
-	static int gamestate = 0;// 1 is multiplayer, 2 is single player, 3 is loser screen singleplayer, 4 is split screen
+	static int gamestate = 0;// 1 is multiplayer, 2 is single player, 3 is loser screen singleplayer, 4 is
+								// split screen
 								// for multiplayer
 	// 5 is winner screen for single player
 
@@ -49,8 +49,7 @@ public class Screen {
 			food = null;
 			sprite.update();
 			playBackgroundsound();
-		} 
-		else if (gamestate == 1) {// multiplayer(updates the multiplayer)
+		} else if (gamestate == 1) {// multiplayer(updates the multiplayer)
 			food.update();
 			if (player1 != null)
 				player1.update();
@@ -63,9 +62,8 @@ public class Screen {
 			checkCollision();
 			updateGame();
 			playBackgroundsound();
-			
-		}
-		else if (gamestate == 2) {// single player(updates the single player)
+
+		} else if (gamestate == 2) {// single player(updates the single player)
 			food.update();
 			if (player1 != null) {
 				player1.update();
@@ -81,7 +79,7 @@ public class Screen {
 		}
 	}
 
-	public void playBackgroundsound() {//only plays the background sound when the game is playing
+	public void playBackgroundsound() {// only plays the background sound when the game is playing
 		if ((!Snake.s.isPlaying(3)) && (gamestate == 1 || gamestate == 2 || gamestate == 0)) {
 			Snake.s.play(3);
 		} else {
@@ -126,14 +124,14 @@ public class Screen {
 
 		}
 
-		if (p.size() == 0) {//if all powerups are used, make 3 new powerups
+		if (p.size() == 0) {// if all powerups are used, make 3 new powerups
 			for (int i = 0; i < 3; i += 1)
 				p.add(new Powerup(30));
 		}
 
 	}
 
-	public void updateTurrets() {//only updates the turrets if they aren't null
+	public void updateTurrets() {// only updates the turrets if they aren't null
 		for (int i = 0; i < t.length; i++) {
 			if (t[i] != null) {
 				t[i].update();
@@ -142,13 +140,14 @@ public class Screen {
 
 	}
 
-	public void updateTanks() {//updates the tanks 
+	public void updateTanks() {// updates the tanks
 		for (int i = 0; i < group.size(); i++) {
 			group.get(i).update();
 		}
 	}
 
-	public void restart() { // this will reset everything to the original thing and is called whenever we press 1 or 2 to play
+	public void restart() { // this will reset everything to the original thing and is called whenever we
+							// press 1 or 2 to play
 		level = 1;
 		scorep1 = 0;
 		scorep2 = 0;
@@ -163,15 +162,14 @@ public class Screen {
 		p = new ArrayList<Powerup>();
 
 		start();
-	}//this method re-initializes everything else 
+	}// this method re-initializes everything else
 
 	public void start() {
 
 		player1 = new Body();
 		if (gamestate == 1) {// only spawns the second snake if it is a multiplayer
 			player2 = new Enemysnake();
-		} 
-		else {// spawns a tank for level 1 of the single player
+		} else {// spawns a tank for level 1 of the single player
 			group.add(new Tank());
 		}
 		food = new Spawnfood();
@@ -185,11 +183,11 @@ public class Screen {
 		livesp2 = 2;
 		for (int i = 0; i < levels.length; i++) {
 			levels[i] = false;// the levels have not yet been completed
-		}// resets the values of the class to 0
+		} // resets the values of the class to 0
 
 	}
 
-	public void checkCollision() {//sets the snake to null if it is dead
+	public void checkCollision() {// sets the snake to null if it is dead
 		if (player1 != null) {
 			if (player1.isDead) {
 				player1 = null;
@@ -202,8 +200,9 @@ public class Screen {
 		}
 	}
 
-	public void kill() {// this will set everything to null(should be used in conjunction with the restart method)
-
+	public void kill() {// this will set everything to null(should be used in conjunction with the
+						// restart method)
+//used in conjunction with restart method
 		player1 = null;
 		player2 = null;
 		level = 0;
@@ -215,128 +214,114 @@ public class Screen {
 
 	}
 
-	public void updateGame() {	//this method handles the level-changing and the lives of the snakes  
+	public void updateGame() { // this method handles the level-changing and the lives of the snakes
 
-		//if it is singlep player
-		
-		//if player 1 is dead 
-		
-		//if it has enough lives, restart player 1
-		
-		//otherwise, if it has progressed to level 1 or level 2 or level 3, promote it 
-		
-		//otherwise, kill it and reset it to end screen
-		
-		//if player 1 is alive
-		
-		//if it has cleared level 1 or level 2 or level 3, do the updating thing
-		
-		if(gamestate == 2) { //singleplayer
-			
-			if(player1 == null) {
-				
-				if(livesp1 > 0) {
-					player1 = new Body();
-					livesp1-=1;
-					group.removeAll(group);
-					for(int i = 0; i< level; i++) {
-						group.add(new Tank());
-					}
-					
-				}
-				else {//it doesnt have enough lives
-					
-					//needs to be killed
-					
-					kill();
-					
-					gamestate = 3;//single player loser screen
-					
-				}
-					
-				}//end if
-			
-			else {//player 1 is not null
-				
-				//now check if it has progressed through a level 
-				
-				if(!levels[0]) {
-					
-					if(scorep1 == 100) {//updates stuff
-						
-						kill();
-						
-						restart();
-						
-						scorep1 = 100;
-						
-						level = 2;
-						
-						group.add(new Tank());
-						
-						levels[0] = true;
-						
-					}
-					//otherwise do nothing and wait
-					
-				}
-				 if (!levels[1]) {
-					
-					if(scorep1 == 200) {//update stuff
-						
-							kill();
-							
-							restart();
-							
-							scorep1 = 200;
-							
-							level = 3;
-							
-							group.add(new Tank());
-							group.add(new Tank());//3 tanks at this level
-							
-							levels[1] = true;
-						
-					}
-					
-					
-					
-				}
-				 if (!levels[2]) {
-					
-					if(scorep1 == 300) {//update stuff-player wins the game
-						
-							kill();
-							
-							gamestate = 5;
-						
-					}
-					
-				}
-				
-				
-				
-				
-			}
-			
-			
-			
-				
-				
-				
-				
-			}
-		else {
+		// if it is singlep player
+
+		// if player 1 is dead
+
+		// if it has enough lives, restart player 1
+
+		// otherwise, if it has progressed to level 1 or level 2 or level 3, promote it
+
+		// otherwise, kill it and reset it to end screen
+
+		// if player 1 is alive
+
+		// if it has cleared level 1 or level 2 or level 3, do the updating thing
+
+		if (gamestate == 2) { // singleplayer
+
 			if (player1 == null) {
-	
+
+				if (livesp1 > 0) {
+					player1 = new Body();
+					livesp1 -= 1;
+					group.removeAll(group);
+					for (int i = 0; i < level; i++) {
+						group.add(new Tank());
+					}
+
+				} else {// it doesnt have enough lives
+
+					// needs to be killed
+
+					kill();
+
+					gamestate = 3;// single player loser screen
+
+				}
+
+			} // end if
+
+			else {// player 1 is not null
+
+				// now check if it has progressed through a level
+
+				if (!levels[0]) {
+
+					if (scorep1 == 100) {// updates stuff
+
+						kill();
+
+						restart();
+
+						scorep1 = 100;
+
+						level = 2;
+
+						group.add(new Tank());
+
+						levels[0] = true;
+
+					}
+					// otherwise do nothing and wait
+
+				}
+				if (!levels[1]) {
+
+					if (scorep1 == 200) {// update stuff
+
+						kill();
+
+						restart();
+
+						scorep1 = 200;
+
+						level = 3;
+
+						group.add(new Tank());
+						group.add(new Tank());// 3 tanks at this level
+
+						levels[1] = true;
+
+					}
+
+				}
+				if (!levels[2]) {
+
+					if (scorep1 == 300) {// update stuff-player wins the game
+
+						kill();
+
+						gamestate = 5;
+
+					}
+
+				}
+
+			}
+
+		} else {
+			if (player1 == null) {
+
 				if (livesp1 > 0) {// has enough lives
 					player1 = new Body();
 					livesp1--;
-				} 
-				else {// runs out of lives
-	
+				} else {// runs out of lives
+
 					if (player2 != null) {
-	
+
 						if (level != 3) {
 							level += 1;
 							player1 = new Body();
@@ -347,42 +332,38 @@ public class Screen {
 							for (int i = 0; i < level; i++) {
 								group.add(new Tank());
 							}
-						} 
-						else {// if it is level 3, end the game
+						} else {// if it is level 3, end the game
 							kill();
 							gamestate = 4;
-							
+
 						}
-	
-					} 
-					else {// player2 is dead so 2nd if statement comes into play
+
+					} else {// player2 is dead so 2nd if statement comes into play
 						if (level != 3) {
-	
+
 							player1 = new Body();
 							player2 = new Enemysnake();
 							livesp1 = 2;
 							livesp2 = 2;
-	
-						} 
-						else {// if it is level 3, end the game
+
+						} else {// if it is level 3, end the game
 							kill();
 							gamestate = 4;
-							
+
 						}
-	
+
 					}
-	
+
 				}
-	  
+
 			}
-	
+
 			if (player2 == null) {
 				if (livesp2 > 0) {// has enough lives
 					player2 = new Enemysnake();
 					livesp2--;
-				} 
-				else {// runs out of lives
-	
+				} else {// runs out of lives
+
 					if (level != 3) {
 						level += 1;
 						player1 = new Body();
@@ -393,28 +374,18 @@ public class Screen {
 						for (int i = 0; i < level; i++) {
 							group.add(new Tank());
 						}
-					} 
-					else {// if it is level 3, end the game
+					} else {// if it is level 3, end the game
 						kill();
 						gamestate = 4;
-						
+
 					}
-	
+
 				}
-	
+
 			}
 
+		}
 	}
-		
-			
-			
-			
-			
-			
-			
-		
-}
-			
 
 	public void draw(Graphics2D win) {
 		if (gamestate == 0) {// home screen
