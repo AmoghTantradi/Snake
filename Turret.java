@@ -167,11 +167,6 @@ public class Turret extends Rectangle2D.Double implements GameObject {
 			
 		}
 		
-		
-		
-		
-		
-//	}
 	
 	private void hitBox(Supersnake s) {//this will damage the snake 
 		for(int i = 0; i< s.arr.size();i++) {
@@ -181,8 +176,6 @@ public class Turret extends Rectangle2D.Double implements GameObject {
 				
 						s.arr.get(i).doDamage(10*Screen.level);
 						if(s.arr.get(i).health<=0) {
-							//e.add(new Explosion(s.arr.get(i).getCenterX(),s.arr.get(i).getCenterY()));
-							//s.arr.remove(i);
 							//we remove the last element instead of the element that dies- we then reset the health back to the max value 
 							e.add(new Explosion(s.arr.get(s.arr.size()-1).getCenterX(),s.arr.get(s.arr.size()-1).getCenterY()));
 							s.arr.get(i).health = 100;

@@ -20,7 +20,6 @@ public class Snake extends GDV5 {
 	static SoundDriver s;
 	String [] sounds;
 
-	// sprites aren't working
 	public Snake() {
 		images = new ArrayList<BufferedImage>();
 		images.add( this.addImage("Images/spriteimag.png"));
@@ -32,16 +31,11 @@ public class Snake extends GDV5 {
 		this.setTitle("SNAKE");
 		screen = new Screen(images);
 		sounds = new String[4];
-		//sounds[0] = "Sounds/Eating Sound.wav";
-		//sounds[1] = "Sounds/Tank Sound.wav";
 		sounds[0] = "Sounds/MissileSound.wav";
 		sounds[1] = "Sounds/ExplosionSound.wav";
 		sounds[2] = "Sounds/CrunchSound.wav";
 		sounds[3] = "Sounds/RainSound.wav";
 		s = new SoundDriver(sounds,this);
-		
-		
-
 	}
 
 	public static void main(String[] args) {
@@ -69,8 +63,6 @@ public class Snake extends GDV5 {
 
 	@Override
 	public void draw(Graphics2D win) {
-		// TODO Auto-generated method stub
-		// win.drawImage(image, null,0,0);
 		screen.draw(win);
 	}
 
