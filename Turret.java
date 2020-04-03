@@ -44,7 +44,7 @@ public class Turret extends Rectangle2D.Double implements GameObject {
 		if(l.size()==0) {
 			if(fire) {
 				l.add(new Laser(this));
-				Snake.s.setVolume(0, 0.35f);
+				Snake.s.setVolume(0, 0.000001f);
 				Snake.s.play(0);
 			}
 		}
@@ -180,6 +180,7 @@ public class Turret extends Rectangle2D.Double implements GameObject {
 							e.add(new Explosion(s.arr.get(s.arr.size()-1).getCenterX(),s.arr.get(s.arr.size()-1).getCenterY()));
 							s.arr.get(i).health = 100;
 							s.arr.remove(s.arr.size()-1);
+							Snake.s.setVolume(1, 0.00001f);
 							Snake.s.play(1);
 							s.doDamage(2*Screen.level);
 							

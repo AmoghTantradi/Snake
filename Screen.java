@@ -81,6 +81,7 @@ public class Screen {
 
 	public void playBackgroundsound() {// only plays the background sound when the game is playing
 		if ((!Snake.s.isPlaying(3)) && (gamestate == 1 || gamestate == 2 || gamestate == 0)) {
+			Snake.s.setVolume(3, 6.02f);
 			Snake.s.play(3);
 		} else {
 			if (gamestate == 3 || gamestate == 4 || gamestate == 5) {
